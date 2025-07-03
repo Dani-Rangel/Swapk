@@ -7,11 +7,9 @@ class Modalidad(str, enum.Enum):
     Presencial = "Presencial"
     Hibrido = "Hibrido"
 
-class PreferenciaUsuario(Base):
-    __tablename__ = "preferencia_usuario"
+class Sesion_Intercambio(Base):
+    __tablename__ = "sesiones_Intercambio"
     id = Column(Integer, primary_key=True)
-    id_usuario = Column(Integer, ForeignKey("usuarios.id"))
+    id_intercambio = Column(Integer, ForeignKey("intercambios.id"))
+    fecha_hora = Column(DateTime)
     modalidad = Column(Enum(Modalidad))
-    idiomas = Column(String(255))
-    intereses = Column(String(255))
-    nivel = Column(String(255))
